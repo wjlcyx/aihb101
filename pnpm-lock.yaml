@@ -44,6 +44,21 @@ importers:
       '@types/ali-oss':
         specifier: ^6.16.11
         version: 6.16.11
+      '@types/markdown-it':
+        specifier: ^14.1.2
+        version: 14.1.2
+      '@types/node':
+        specifier: ^20.17.6
+        version: 20.17.6
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
       ali-oss:
         specifier: ^6.22.0
         version: 6.22.0(proxy-agent@5.0.0)
@@ -59,15 +74,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      coffee-script:
-        specifier: ^1.12.7
-        version: 1.12.7
       highlight.js:
         specifier: ^11.10.0
         version: 11.11.1
-      install:
-        specifier: ^0.13.0
-        version: 0.13.0
       lucide-react:
         specifier: ^0.460.0
         version: 0.460.0(react@19.0.0-rc-66855b96-20241106)
@@ -98,6 +107,9 @@ importers:
       react-icons:
         specifier: ^5.3.0
         version: 5.4.0(react@19.0.0-rc-66855b96-20241106)
+      shadcn-ui:
+        specifier: ^0.9.4
+        version: 0.9.4(typescript@5.6.3)
       sonner:
         specifier: ^1.7.1
         version: 1.7.1(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
@@ -110,31 +122,12 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.15)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
       uuid:
         specifier: ^11.0.3
         version: 11.0.3
-    devDependencies:
-      '@types/markdown-it':
-        specifier: ^14.1.2
-        version: 14.1.2
-      '@types/node':
-        specifier: ^20
-        version: 20.17.6
-      '@types/react':
-        specifier: ^18
-        version: 18.3.12
-      '@types/react-dom':
-        specifier: ^18
-        version: 18.3.1
-      '@types/uuid':
-        specifier: ^10.0.0
-        version: 10.0.0
-      shadcn-ui:
-        specifier: ^0.9.3
-        version: 0.9.4(typescript@5.6.3)
-      typescript:
-        specifier: ^5
-        version: 5.6.3
 
 packages:
 
@@ -1187,12 +1180,6 @@ packages:
   code-block-writer@12.0.0:
     resolution: {integrity: sha512-q4dMFMlXtKR3XNBHyMHt/3pwYNA69EDk00lloMOaaUMKPUXBw6lpXtbu3MMVG6/uOihGnRDOlkyqsONEUj60+w==}
 
-  coffee-script@1.12.7:
-    resolution: {integrity: sha512-fLeEhqwymYat/MpTPUjSKHVYYl0ec2mOyALEMLmzr5i1isuG+6jfI2j2d5oBO3VIzgUXgBVIcOT9uH1TFxBckw==}
-    engines: {node: '>=0.8.0'}
-    deprecated: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
-    hasBin: true
-
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -1586,10 +1573,6 @@ packages:
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
-
-  install@0.13.0:
-    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
-    engines: {node: '>= 0.10'}
 
   invariant@2.2.4:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
@@ -3718,8 +3701,6 @@ snapshots:
 
   code-block-writer@12.0.0: {}
 
-  coffee-script@1.12.7: {}
-
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
@@ -4095,8 +4076,6 @@ snapshots:
       resolve-from: 4.0.0
 
   inherits@2.0.4: {}
-
-  install@0.13.0: {}
 
   invariant@2.2.4:
     dependencies:
