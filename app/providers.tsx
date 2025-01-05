@@ -6,7 +6,7 @@ import { GuardProvider } from '@authing/guard-react18'
 const guardConfig = {
   appId: '67779b0a999fafbd18f2ed7b',
   host: 'https://my-aihb.authing.cn',
-  redirectUri: 'http://localhost:3000/callback',
+  redirectUri: 'http://aihb.top/callback',
   isSSO: true
 }
 
