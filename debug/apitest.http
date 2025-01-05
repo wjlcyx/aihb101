@@ -1,0 +1,42 @@
+@baseUrl = http://localhost:3000/api
+
+###
+POST {{baseUrl}}/test
+Content-Type: application/json
+
+{
+    "message": "用go写一个from表单"
+}   
+
+
+###
+POST {{baseUrl}}/chat/completions
+Content-Type: application/json
+
+{
+    "user_msg": {
+        "chat_uuid": "first-chat",
+        "uuid": "first-user-msg",
+        "content": "用go写一个hello world"
+    },
+    "assistant_msg": {
+        "uuid": "first-assistant-msg"
+    }
+}   
+
+###
+POST {{baseUrl}}/generate
+Content-Type: application/json
+
+{
+    "description": "a desktop wallpaper about: a beautiful girl"
+}
+
+###
+POST {{baseUrl}}/generate
+Content-Type: application/json
+
+{
+    "description": "a desktop wallpaper about: a beautiful girl"
+}
+
