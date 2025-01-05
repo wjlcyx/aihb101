@@ -75,14 +75,17 @@ export default function PreviewPanel({ images }: PreviewPanelProps) {
       if (!response.ok) throw new Error('Download failed');
       
       const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `red-envelope-${Date.now()}.jpg`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      // 添加浏览器环境检查
+      if (typeof window !== 'undefined') {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `red-envelope-${Date.now()}.jpg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      }
     } catch (error) {
       console.error('Download failed:', error);
       alert('下载失败，请稍后重试。');

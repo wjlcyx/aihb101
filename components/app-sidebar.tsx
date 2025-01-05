@@ -140,6 +140,15 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const handleSidebarToggle = () => {
+    if (typeof window !== 'undefined') {
+      const sidebar = document.querySelector('[role="sidebar"]');
+      if (sidebar) {
+        sidebar.classList.toggle('collapsed');
+      }
+    }
+  }
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarRail className="flex items-center justify-center">
@@ -147,12 +156,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarClose 
             size={14} 
             className="opacity-25 cursor-pointer" 
-            onClick={() => {
-              const sidebar = document.querySelector('[role="sidebar"]');
-              if (sidebar) {
-                sidebar.classList.toggle('collapsed');
-              }
-            }}
+            onClick={handleSidebarToggle}
           />
         </div>
       </SidebarRail>
