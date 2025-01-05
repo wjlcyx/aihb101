@@ -70,22 +70,21 @@ export default function PreviewPanel({ images }: PreviewPanelProps) {
   }, [localImages]);
 
   const downloadImage = async (imageUrl: string) => {
+    if (typeof window === 'undefined') return;
+    
     try {
       const response = await fetch(`/api/download?url=${encodeURIComponent(imageUrl)}`);
       if (!response.ok) throw new Error('Download failed');
       
       const blob = await response.blob();
-      // 添加浏览器环境检查
-      if (typeof window !== 'undefined') {
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `red-envelope-${Date.now()}.jpg`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-      }
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `red-envelope-${Date.now()}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Download failed:', error);
       alert('下载失败，请稍后重试。');

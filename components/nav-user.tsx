@@ -48,20 +48,22 @@ export function NavUser() {
 
   useEffect(() => {
     const updateUserInfo = async () => {
-      try {
-        const loginStatus = await guard.checkLoginStatus()
-        if (loginStatus) {
-          const authingUser = await guard.trackSession()
-          if (authingUser) {
-            setUserInfo({
-              name: authingUser.username || authingUser.nickname || 'cool',
-              email: authingUser.email || '新年好',
-              avatar: authingUser.photo || 'https://files.authing.co/authing-console/default-user-avatar.png'
-            })
+      if (typeof window !== 'undefined') {
+        try {
+          const loginStatus = await guard.checkLoginStatus()
+          if (loginStatus) {
+            const authingUser = await guard.trackSession()
+            if (authingUser) {
+              setUserInfo({
+                name: authingUser.username || authingUser.nickname || 'cool',
+                email: authingUser.email || '新年好',
+                avatar: authingUser.photo || 'https://files.authing.co/authing-console/default-user-avatar.png'
+              })
+            }
           }
+        } catch (error) {
+          console.error('Get user info error:', error)
         }
-      } catch (error) {
-        console.error('Get user info error:', error)
       }
     }
 
