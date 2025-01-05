@@ -22,13 +22,16 @@ export const metadata: Metadata = {
   description: "免费生成红包封面",
 };
 
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-transparent`}
         style={{ margin: 0, padding: 0 }}

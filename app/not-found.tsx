@@ -1,8 +1,15 @@
 'use client'
 
 import Link from 'next/link'
+import { useClientSide } from '@/hooks/use-client-side'
 
 export default function NotFound() {
+  const isClient = useClientSide()
+
+  if (!isClient) {
+    return null // 或者返回一个加载状态
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <div className="text-center">
