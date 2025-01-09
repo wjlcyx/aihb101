@@ -5,6 +5,7 @@ import "./globals.css";
 import BackgroundWrapper from "@/components/BackgroundWrapper";
 import '@authing/guard-react18/dist/esm/guard.min.css'
 import { AuthProvider } from './providers'
+import Script from 'next/script'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,6 +33,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh">
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+          `}
+        </Script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-transparent`}
         style={{ margin: 0, padding: 0 }}
